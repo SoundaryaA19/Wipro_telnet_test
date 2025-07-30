@@ -1,0 +1,53 @@
+// Abstract class - Abstraction
+abstract class Animal {
+    String name;
+
+    // No constructor used
+    void setName(String name) {
+        this.name = name;
+    }
+
+    abstract void sound(); // abstract method
+}
+
+// Interface - Interface
+interface Pet {
+    void play();
+}
+
+// Dog class - Inheritance, Encapsulation, Interface, Polymorphism
+class Dog extends Animal implements Pet {
+    private String breed; // Encapsulation
+
+    // No constructor used
+    void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getBreed() { // Encapsulation
+        return breed;
+    }
+
+    @Override
+    void sound() { // Method Overriding - Polymorphism
+        System.out.println(name + " barks");
+    }
+
+    @Override
+    public void play() { // Interface method
+        System.out.println(name + " plays with a ball");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.setName("Buddy");
+        d.setBreed("Labrador");
+
+        System.out.println("Breed: " + d.getBreed());
+        d.sound();  // Polymorphism (overridden method)
+        d.play();   // Interface method
+    }
+}
